@@ -6,7 +6,7 @@ import Data.RDF.Namespace
 import Data.RDF.Query
 import Data.RDF.Types
 
-import Control.DeepSeq (NFData)
+import Control.DeepSeq (NFData(rnf))
 import qualified Data.Graph.Inductive.Graph as G
 import qualified Data.Graph.Inductive.PatriciaTree as PT
 import qualified Data.Graph.Inductive.Query.DFS as DFS
@@ -19,6 +19,7 @@ newtype PatriciaTreeGraph = PatriciaTreeGraph (PT.Gr Node Node,IntMap.IntMap Nod
                             deriving (Show,NFData)
 
 instance NFData (PT.Gr Node Node)
+  where rnf x = seq x ()
 
 instance RDF PatriciaTreeGraph where
   baseUrl           = baseUrl'

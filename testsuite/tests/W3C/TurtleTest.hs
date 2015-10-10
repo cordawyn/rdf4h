@@ -3,7 +3,7 @@ module W3C.TurtleTest where
 import Test.Framework.Providers.API
 import Test.Framework.Providers.HUnit
 import qualified Test.HUnit as TU
-import qualified Data.Text as T
+import qualified Data.Text.Lazy as T
 
 import W3C.Manifest
 
@@ -13,7 +13,7 @@ import Text.RDF.RDF4H.TurtleParser
 import Text.RDF.RDF4H.NTriplesParser
 import Data.RDF.TriplesGraph
 
-suiteFilesDir = "data/w3c/turtle/"
+suiteFilesDir = "data/w3c/turtle/TurtleTests/"
 
 mfPath = T.concat [suiteFilesDir, "manifest.ttl"]
 mfBaseURI = BaseUrl "http://www.w3.org/2013/TurtleTests/"
