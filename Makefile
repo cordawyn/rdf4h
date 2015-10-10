@@ -7,13 +7,7 @@ clean:
 configure:
 	cabal configure
 
-configure-tests:
-	cabal configure --enable-tests
-
 build: configure
-	cabal build
-
-build-tests: configure-tests
 	cabal build
 
 haddock: configure build
@@ -24,6 +18,15 @@ install:
 
 sdist: configure build
 	cabal sdist
+
+install-tests:
+	cabal install --enable-tests
+
+configure-tests: install-tests
+	cabal configure --enable-tests
+
+build-tests: configure-tests
+	cabal build
 
 test: build-tests
 	cabal test
