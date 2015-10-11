@@ -4,8 +4,14 @@ all: build
 clean:
 	cabal clean
 
-configure:
+deps:
+	cabal install --dependencies-only
+
+configure: deps
 	cabal configure
+
+configure-tests: deps
+	cabal configure --enable-tests
 
 build: configure
 	cabal build
