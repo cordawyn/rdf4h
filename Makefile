@@ -26,7 +26,7 @@ sdist: configure build
 	cabal sdist
 
 install-tests:
-	cabal install --enable-tests
+	cabal install --enable-tests --dependencies-only
 
 configure-tests: install-tests
 	cabal configure --enable-tests
